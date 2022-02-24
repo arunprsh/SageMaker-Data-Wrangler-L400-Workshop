@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "version": 1,
+    "disable_limits": false
+  },
+  "nodes": [
+    {
+      "node_id": "0925665f-6509-4c57-92e1-650117a95c77",
+      "type": "SOURCE",
+      "operator": "sagemaker.s3_source_0.1",
+      "parameters": {
+        "dataset_definition": {
+          "__typename": "S3CreateDatasetDefinitionOutput",
+          "datasetSourceType": "S3",
+          "name": "hotel_bookings.csv",
+          "description": null,
+          "s3ExecutionContext": {
+            "__typename": "S3ExecutionContext",
+            "s3Uri": "s3://sagemaker-us-east-1-119174016168/datasets/hotel_bookings.csv",
+            "s3ContentType": "csv",
+            "s3HasHeader": true,
+            "s3FieldDelimiter": ",",
+            "s3DirIncludesNested": false,
+            "s3AddsFilenameColumn": false
+          }
+        }
+      },
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "default",
+          "sampling": {
+            "sampling_method": "sample_by_limit",
+            "limit_rows": 50000
+          }
+        }
+      ]
+    },
+    {
+      "node_id": "580cdcdf-22ee-4360-9448-08866969aedb",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.infer_and_cast_type_0.1",
+      "parameters": {},
+      "trained_parameters": {
+        "schema": {
+          "hotel": "string",
+          "is_canceled": "long",
+          "lead_time": "long",
+          "arrival_date_year": "long",
+          "arrival_date_month": "string",
+          "arrival_date_week_number": "long",
+          "arrival_date_day_of_month": "long",
+          "stays_in_weekend_nights": "long",
+          "stays_in_week_nights": "long",
+          "adults": "long",
+          "children": "long",
+          "babies": "long",
+          "meal": "string",
+          "country": "string",
+          "market_segment": "string",
+          "distribution_channel": "string",
+          "is_repeated_guest": "long",
+          "previous_cancellations": "long",
+          "previous_bookings_not_canceled": "long",
+          "reserved_room_type": "string",
+          "assigned_room_type": "string",
+          "booking_changes": "long",
+          "deposit_type": "string",
+          "agent": "long",
+          "company": "string",
+          "days_in_waiting_list": "long",
+          "customer_type": "string",
+          "adr": "float",
+          "required_car_parking_spaces": "long",
+          "total_of_special_requests": "long",
+          "reservation_status": "string",
+          "reservation_status_date": "date"
+        }
+      },
+      "inputs": [
+        {
+          "name": "default",
+          "node_id": "0925665f-6509-4c57-92e1-650117a95c77",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "afd4fd8e-105f-4a6f-ad65-8f61d2f6959e",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.time_series_0.1",
+      "parameters": {
+        "Validate timestamps_parameters": {
+          "timestamp_column": "reservation_status_date",
+          "policy": "indicate",
+          "cast_to_datetime": true
+        },
+        "operator": "Validate timestamps"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "580cdcdf-22ee-4360-9448-08866969aedb",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "349bd22e-d7b6-465b-a2ac-8344e24b7b03",
+      "type": "VISUALIZATION",
+      "operator": "sagemaker.visualizations.target_leakage_0.1",
+      "parameters": {
+        "name": "Target Leakge (pre-transform)",
+        "max_features": "20",
+        "problem_type": "classification",
+        "target": "is_canceled"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "afd4fd8e-105f-4a6f-ad65-8f61d2f6959e",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    }
+  ]
+}
