@@ -137,6 +137,59 @@
           "name": "default"
         }
       ]
+    },
+    {
+      "node_id": "ff7316e8-9798-4591-b77d-e6e2f6c66121",
+      "type": "VISUALIZATION",
+      "operator": "sagemaker.visualizations.quick_model_0.1",
+      "parameters": {
+        "name": "Quick Model (Pre-transform)",
+        "label": "is_canceled"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "afd4fd8e-105f-4a6f-ad65-8f61d2f6959e",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "0206ccea-5ac9-407d-b5dd-b56ce9e2e603",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.encode_categorical_0.1",
+      "parameters": {
+        "operator": "Ordinal encode",
+        "ordinal_encode_parameters": {
+          "invalid_handling_strategy": "Replace with NaN",
+          "input_column": [
+            "hotel"
+          ]
+        }
+      },
+      "trained_parameters": {
+        "ordinal_encode_parameters": {
+          "_hash": -7262088998495137000,
+          "string_indexer_model": "P)h>@6aWAK2moxQSX6%iz|Y?R003hF000vJ003=ebYWy+bYU-WVRCdWFfcGMFm;YiO9L?!Mfd)Utfyh>WE||aZn`K6ire9lymUhI<x3*gGXLFl1gW6g%f08GGm{olVjC9dz#)R1kf#WA<j!)9kP9Jy&Sd;y=M{b+?Sn$g8kUX2l)*)|S>K6%=z7r#F?0=E_OD3E1YgM=Z+W`{_vu${-4&y1_zOASYJJ}iLU-$4)=J%j+e0OvStvP{ybZRFGP*d*aCx7=D~mh-4tC)k5o3*w|0z!)SI@a&3N;j)pRS;3d4D8@^m2+=+nVsLpqHlyOc#ag+y7n1@w@kj5E2Dq^L+CKP)h>@6aWAK2moxQSX5w%bczlD000aC000;O003=ebYWy+bYU+paA9(EEif=JFfcA-a$`#_N@ieSU}89bfT11$P)h>@6aWAK2moxQSX7R-)|Hz9005=}002k;003lRbYU-WVRCdWFfcGMFfC#>W-wzlGB_<YFfw8-G&nRdEjch^Gc7k`W-(=BG&N!}H)JhiFfcGKb8ca9aCt6pVRCVGWps^F(Q4Z;6uoiXG_-zIkiic|kkUdT>^b$4usxK$ls$}6`cSr&BFA!PCfli`Y=jcnXN~>9ervZ)x@IdKdlC1XbC0ghMW@GSF#+<PeC!h!i#BNoDI9ob(lpwJCykYg?!GDQVpRjcAlSlls{?Lp=i30lL$ukxi}=w%9ABMyW+wFKD>MBhD?uDMa_F8CnN;RjYq1~>X~U6AT~!*pl6Rz%m8|XG67hPEVh^C}_<<kncLL)1J!tzEoA=(E9-99E#Ob=-@2&2S)_&*JKlAzlZUt~M&O(C&exK4tUvn`N7>C~{<6opUWmD7bghxCAdibQn+$fI4&0Jcpo3Ff*R^-A8`m=S*>|!R_gc+;nQ_K3SD5c5`n|!!swW#i-jZ~<w`hWYxnqG%H{}1(UR#{&oJ#A_$%G$h}E5#=G0=ayKtPzMz$raIO4-s(Ia(TG~`gR>~Q0Z{Jkuc_Q#N+TFo0lpNqhg#F!z7nQk&Q-0{<0XQX_}`=I*v!f7fBKo!!*mshkg*?#$V&wPw|KT0#Hi>1QY-O00;nVrC3y1wg|cs0000G0000@0001FVRT_HE^uLTbS*G2FfcGJVm4+lV>L23Ej2JQVl6Z{G%+nXFk&+;H)CcoWn(loVlp>mEn_e+FfMa$VQ_GHE^uLTadl;ME@N_IOD;-gU|?WkXj`?Lz4wD(2mnw^0Rj{Q6aWAK2moxQSX6%iz|Y?R003hF000vJ0000000000005+c00000ZDn*}WMOn+FK}UUbS*G2FfcGsO928D0~7!N00;nVrC3y8iFAq%0000C0000O00000000000001_fe--z0BvP-VPs)+VJ|LlVRCdWFfcGMFfL<qV^B*00u%!j000080BogLRF1aRm74(o0Hy)}07w7;00000000000HlFb0RRAGVRT_HaA9(EEif=JFfc7*HfAtmH8MCYH83(_Ei^bZF)cYTVlyo_V`edBV>C5lGB;!`V=yo<E^}^SaBz7paA9(Bb!Bu=O928D0~7!N00;nVrC3y1wg|cs0000G0000@00000000000001_fmH(l0AyiwVJ|LlVRCdWFfcGMFfC#>W-wzlGB_<YFfw8-G&nRdEjch^Gc7k`W-(=BG&N!}H)JhiFfcGKb8ca9aCt6pVRCVGWpplMa$`_S1qJ{B000C41ORve007bh00000"
+        }
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "afd4fd8e-105f-4a6f-ad65-8f61d2f6959e",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
     }
   ]
 }
