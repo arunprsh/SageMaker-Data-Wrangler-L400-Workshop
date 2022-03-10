@@ -13,8 +13,19 @@
 
 **Description of the columns**
 
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lll}
+ Column name & Description \\
+ foo & bar \\
+ foo & bar
+\end{tabular}%
+}
+\end{table}
 
-** Exploratory Data Analysis**
+
+**Exploratory Data Analysis**
 
 
 **Evaluate Feature importance**
