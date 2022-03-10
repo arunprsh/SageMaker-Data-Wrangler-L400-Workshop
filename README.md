@@ -13,11 +13,10 @@
 
 **Description of the columns**
 
-|   |   | 
+| Column Name  | Description  | 
 |---|---|
-|   |   |   
-|   |   |   
-|___|___|   
+| `hotel`  | foo bar  |   
+| `is_canceled` | foo bar |   
 
 
 **Exploratory Data Analysis**
