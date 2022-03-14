@@ -20,8 +20,14 @@
 
 
 **Exploratory Data Analysis**
+TODO
 
+**Feature Transformations**
+TODO
 
 **Evaluate Feature importance**
 * Which features are most important to predict cancelations?
+
+
+TODO
 
