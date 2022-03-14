@@ -15,8 +15,8 @@
 
 | Column Name  | Description  | 
 |---|---|
-| `hotel`  | foo bar  |   
-| `is_canceled` | foo bar |   
+| `hotel`  | Type of the hotel (H1 = Resort Hotel or H2 = City Hotel)  |   
+| `is_canceled` | Value indicating if the booking was canceled (1) or not (0) |   
 
 
 **Exploratory Data Analysis**
