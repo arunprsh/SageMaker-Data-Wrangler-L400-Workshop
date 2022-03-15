@@ -1,0 +1,6 @@
+
+
+### What is SageMaker Studio? 
+
+Amazon SageMaker Studio is a visual integrated development environment (IDE) that allows you to run all the tasks required to complete the ML life cycle. It is a unified tool that helps developers prepare, build, training, and deploy ML models. Developers can write code, track experiments, visualize data, and perform debugging and monitoring all within a single, integrated visual interface, which significantly boosts developer productivity. Additionally, Studio tracks everything within an environment so developers can quickly move back and forth between steps, but also clone, tweak and replay them. This gives developers the ability to make changes quickly, observe outcomes, and iterate faster, reducing the time to market for high quality ML solutions.
+[Image: image.png]Here is what Amazon SageMaker Studio looks like. In this example, we are making updates to models inside a notebook and immediately seeing how changes impact model quality using a side-by-side view of your notebook and training experiments.
