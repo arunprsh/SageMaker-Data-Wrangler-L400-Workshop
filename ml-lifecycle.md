@@ -1,7 +1,8 @@
 ## Machine Learning Lifecycle
 
-**Machine learning (ML)** development is a complex and iterative process. But you can generalize an ML life cycle as having four broad stages.
-![lifecycle](./img/ml-lifecycle.png)The first is the **Prepare** stage, which takes up the majority of ML teams’ time. Forbes’ study in 2016 showed 80% of ML engineering team’s time is spent preparing data. Data preparation is tedious, resource and time-intensive because data is often “dirty” and not ready for Machine Learning in its raw form. “Dirty” data could include missing or erroneous values, outliers and other barriers that can impact an ML model. 
+**Machine learning (ML)** development is a complex and iterative process. But you can generalize an ML life cycle as having four broad stages.<br>
+![lifecycle](./img/ml-lifecycle.png)<br>
+The first is the **Prepare** stage, which takes up the majority of ML teams’ time. Forbes’ study in 2016 showed 80% of ML engineering team’s time is spent preparing data. Data preparation is tedious, resource and time-intensive because data is often “dirty” and not ready for Machine Learning in its raw form. “Dirty” data could include missing or erroneous values, outliers and other barriers that can impact an ML model. 
 
 Although data can “dirty”, ML teams still need time to explore and gain understanding of their data through visualizations and analysis. Once they have a good understanding of their data, they apply **feature engineering** to transform the raw data into valuable inputs. Every unique attribute of the data is considered a feature. In our case, each booking record contains features such as the arrival date and time of checking in, length of stay, number of guests, and so on. Feature engineering selects and transforms variables to create a predictive model. Because the quality of features impacts the quality of the model, feature is a critical part of the ML workflow.
 
