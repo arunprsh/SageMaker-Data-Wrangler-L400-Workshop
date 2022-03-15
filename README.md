@@ -33,10 +33,6 @@
 |`distribution_channel`|Booking distribution channel. The term “TA” means “Travel Agents” and “TO” means “Tour Operators”|
 |`is_repeated_guest`|Value indicating if the booking name was from a repeated guest (1) or not (0)|
 |`previous_cancellations`|Number of previous bookings that were cancelled by the customer prior to the current booking|
-|`previous_bookings_not_canceled`|Number of previous bookings not cancelled by the customer prior to the current booking|
-|`reserved_room_type`|Code of room type reserved. Code is presented instead of designation for anonymity reasons.|
-|`assigned_room_type`|Code for the type of room assigned to the booking. Sometimes the assigned room type differs from the reserved room type due to hotel operation reasons (e.g. overbooking) or by customer request. Code is presented instead of designation for anonymity reasons.|
-
 
 
 
