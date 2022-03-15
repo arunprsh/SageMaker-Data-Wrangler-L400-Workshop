@@ -14,7 +14,7 @@
 **Description of the columns**
 
 | Column Name  | Description  | 
-|---|---||||
+|---|---|
 | `hotel`  | Type of the hotel (H1 = Resort Hotel or H2 = City Hotel)  |   
 | `is_canceled` | Value indicating if the booking was canceled (1) or not (0) |   
 | `lead_time` | Number of days that elapsed between the entering date of the booking into the PMS and the arrival date |
