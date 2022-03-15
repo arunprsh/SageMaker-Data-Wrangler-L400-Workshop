@@ -1,5 +1,6 @@
 ## Machine Learning Lifecycle
 
+<p style='text-align: justify;'>
 **Machine learning (ML)** development is a complex and iterative process. But you can generalize an ML life cycle as having four broad stages.<br>
 ![lifecycle](./img/ml-lifecycle.png)<br>
 The first is the **Prepare** stage, which takes up the majority of ML teams’ time. Forbes’ study in 2016 showed 80% of ML engineering team’s time is spent preparing data. Data preparation is tedious, resource and time-intensive because data is often “dirty” and not ready for Machine Learning in its raw form. “Dirty” data could include missing or erroneous values, outliers and other barriers that can impact an ML model. 
@@ -13,3 +14,4 @@ Now that you have your cleaned data set and have chosen an algorithm, you can mo
 When you are satisfied with your model, you are ready to **Deploy & Monitor**. You deploy your model to production to serve real-time inference or produce predictions in batch. Also, you will want to monitor your model and scale it to meet the demands of your end-users. 
 
 This workshop will focus on the **Prepare** stage when ML teams prepare data to produce the best model.
+</p>
