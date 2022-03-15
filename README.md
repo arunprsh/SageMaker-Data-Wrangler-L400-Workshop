@@ -66,6 +66,6 @@ TODO
 
 **Contributors**
 
-Arunprasath Shankar (arunprsh@)
+Arunprasath Shankar (arunprsh@) <br>
 Peter Chung (pechung@)
 
