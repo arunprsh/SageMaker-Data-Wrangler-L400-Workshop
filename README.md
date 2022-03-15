@@ -8,8 +8,8 @@
 
 **Dataset**
 
-* [Hotel Booking Demand dataset](https://www.kaggle.com/jessemostipak/hotel-booking-demand) - This data set contains booking information for a city hotel and a resort hotel, and includes information such as when the booking was made, length of stay, the number of adults, children, and/or babies, and the number of available parking spaces, among other things.
-![Hotel Booking](./img/hotel-booking.png)
+* [Hotel Booking Demand dataset](https://www.kaggle.com/jessemostipak/hotel-booking-demand) - This data set contains booking information for a city hotel and a resort hotel, and includes information such as when the booking was made, length of stay, the number of adults, children, and/or babies, and the number of available parking spaces, among other things. <br>
+![Hotel Booking](./img/hotel-booking.png)<br>
 
 **Description of the columns**
 
@@ -48,24 +48,27 @@
 |`reservation_status`|Reservation last status, assuming one of three categories: `Canceled` – booking was canceled by the customer; `Check-Out` – customer has checked in but already departed; `No-Show` – customer did not check-in and did inform the hotel of the reason why|
 |`reservation_status_date`|Date at which the last status was set. This variable can be used in conjunction with the ReservationStatus to understand when was the booking canceled or when did the customer checked-out of the hotel|
 
+---
 
-
-
-**Exploratory Data Analysis**
+**Exploratory Data Analysis** <br>
 TODO
 
-**Feature Transformations**
+---
+
+**Feature Transformations** <br>
 TODO
 
-**Evaluate Feature importance**
+--
+
+**Evaluate Feature importance** <br>
 * Which features are most important to predict cancelations?
 
-
-TODO
-
+--
 
 **Contributors**
 
-Arunprasath Shankar (arunprsh@) <br>
-Peter Chung (pechung@)
+| Contributor  | Alias  | 
+|---|---|
+|`Arunprasath Shankar`| `arunprsh@`|
+|`Peter Chung`|`pechung`|
 
