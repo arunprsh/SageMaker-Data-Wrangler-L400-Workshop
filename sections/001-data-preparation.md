@@ -22,21 +22,21 @@ Data preparation includes *data pre-processing* and *feature engineering*.
 After you explore and understand your data, you can move to *feature engineerin*g. Each data attribute is a feature such as the `arrival date`, `time of checking in`, `length of stay`, `number of guests`, and more. 
 
 Feature engineering is a process to select and transform variables when creating a predictive model. Feature engineering typically includes: 
-* feature creation
-* feature transformation
-* feature extraction
-* feature selection
+* Feature Creation
+* Feature Transformation
+* Feature Extraction
+* Feature Selection
 
-### Feature Creation
+#### Feature Creation
 Feature creation is creating new features from existing data to help with better predictions. Examples of feature creation techniques include: one-hot-encoding, binning, splitting, and calculated features etc.
 
-### Feature Transformation
+#### Feature Transformation
 Feature transformation 
 
 It also includes imputation tech** manage replacing missing features or features that are not valid. Some techniques include: forming Cartesian products of features, non-linear transformations (such as binning numeric variables into categories), and creating domain-speciﬁc features.
 
-### Feature Extraction
+#### Feature Extraction
 Feature extraction involves reducing the amount of data to be processed using dimensionality reduction techniques like principle component analysis as an example (PCA). This reduces the required amount of memory and computing power , while still accurately maintaining original data characteristics.
 
-### Feature Selection
+#### Feature Selection
 Feature selection is the process of selecting subset of extracted features. This subset is relevant and contributes to minimizing the error rate of a trained model. Feature importance score and correlation matrix can be factors in selecting the most relevant features for model training.
