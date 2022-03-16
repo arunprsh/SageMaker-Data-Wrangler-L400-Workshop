@@ -1,14 +1,12 @@
-
-
 ## Data Preparation
 
-ML models are only as good as the data that is used to train them. Knowing what good data is comes from exploratory data analysis (EDA). EDA helps you understand your data by identifying patterns in your data. For example, we might find that customers who book Resort hotels tend to stay longer than City hotels. Or customers that stay over the weekend purchase more meals. Because these patterns are not evident with data in tables, data scientists use visualization tools to help him identify patterns. 
+ML models are only as good as the data that is used to train them. In order to understand the nature/quality of data in hand, we need to start with exploratory data analysis (EDA). EDA helps you understand your data by identifying patterns in your data. For example, we might find that customers who book Resort hotels tend to stay longer than City hotels. Or customers that stay over the weekend purchase more meals. Because these patterns are not evident with data in tables, data scientists use visualization tools to help him identify patterns. 
 
-Once you identify patterns in your data, you prepare your data enduring that suitable training data is available and is optimized for learning and generalization. You can prepare data using wrangler tools for interactive data analysis and model building. **SageMaker Data Wrangler** helps with this step. Data Wrangler has no-code/low-code, automation, and visual capabilities to improve your data preparation productivity and to reduce the cost for interactive analysis.
+Once you identify patterns in your data, you prepare your data enduring that suitable training data is available and is optimized for learning and generalization. You can prepare data using visual tools for interactive data analysis and model building. **SageMaker Data Wrangler** helps with this step. Data Wrangler has no-code/low-code, automation, and visual capabilities to improve your data preparation productivity and to reduce the cost for interactive analysis.
 
-Data preparation includes *data preprocessing* and *feature engineering*.
+Data preparation includes *data pre-processing* and *feature engineering*.
 
-### Data Preprocessing
+### Data Pre-processing
 
 *Data preprocessing* puts data into the right shape and quality for training. Some data preprocessing strategies include: data cleaning, balancing, replacing, imputing, partitioning, scaling, augmenting and unbiasing.
 
