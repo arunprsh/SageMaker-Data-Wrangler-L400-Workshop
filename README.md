@@ -1,7 +1,5 @@
 # SageMaker Data Wrangler L400 Workshop
 
-
-
 **Use Case**
 
 * **Predict hotel booking cancellations**
@@ -50,25 +48,43 @@
 
 ---
 
-**Exploratory Data Analysis** <br>
+### Outline
+
+**Machine Learning (ML) Life Cycle**
+
+**Data Preparation**
+    
+**Amazon SageMaker**
+ 
+**SageMaker Studio**
+
+**Data Wrangler Introduction**
+
+**Exploratory Data Analysis (Pre-Transformations)** 
 TODO
 
 ---
 
-**Feature Transformations** <br>
+**Feature Transformations** 
 TODO
 
---
+---
 
-**Evaluate Feature importance** <br>
+**Data Analysis (Post-Transformations)** 
+TODO
+
+---
+
+**Evaluate Feature importance** 
 * Which features are most important to predict cancelations?
 
---
+---
 
 **Contributors**
 
 | Contributor  | Alias  | 
 |---|---|
-|`Arunprasath Shankar`| `arunprsh@`|
-|`Peter Chung`|`pechung`|
+|`Arunprasath Shankar`| `@arunprsh@`|
+|`Peter Chung`|`pechung@`|
 
+---
