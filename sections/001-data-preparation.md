@@ -14,7 +14,7 @@ Data preparation includes *data pre-processing* and *feature engineering*.
 * **Partition** — Randomly split data into train, validate, and test sets to prevent ML models from overfitting and evaluate trained model accurately.
 * **Scale** — Having features on normally distributed scale ensures that each feature is equally important. This will make it easier for many ML algorithms . Normalized numeric features have values between 0 and 1. Standardized numeric features better handle outliers and have a mean of 0 and standard deviation of 1.
 * **Unbias** — Avoid inaccurate model results by detecting and mitigation bias. An example of bias is if our dataset only includes hotel bookings from customer in a particular income range.
-* **
+* **Balance** - 
 * **Augment** — Data augmentation increases the amount of data artificially by synthesizing new data from existing data. Data augmentation helps regularize data and reduces overfitting.
 
 ### Feature Engineering
@@ -31,9 +31,9 @@ Feature engineering is a process to select and transform variables when creating
 Feature creation is creating new features from existing data to help with better predictions. Examples of feature creation techniques include: one-hot-encoding, binning, splitting, and calculated features etc.
 
 #### Feature Transformation
-Feature transformation 
+Feature transformation is the process of
 
-It also includes imputation tech** manage replacing missing features or features that are not valid. Some techniques include: forming Cartesian products of features, non-linear transformations (such as binning numeric variables into categories), and creating domain-speciﬁc features.
+It also includes imputation techniques to manage replacing missing features or features that are not valid. Some techniques include: forming Cartesian products of features, non-linear transformations (such as binning numeric variables into categories), and creating domain-speciﬁc features.
 
 #### Feature Extraction
 Feature extraction involves reducing the amount of data to be processed using dimensionality reduction techniques like principle component analysis as an example (PCA). This reduces the required amount of memory and computing power , while still accurately maintaining original data characteristics.
