@@ -50,7 +50,7 @@
 
 ### Outline
 
-**Machine Learning (ML) Life Cycle**
+**Machine Learning Life Cycle**
 
 **Data Preparation**
     
