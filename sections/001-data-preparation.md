@@ -10,19 +10,33 @@ Data preparation includes *data pre-processing* and *feature engineering*.
 
 *Data preprocessing* puts data into the right shape and quality for training. Some data preprocessing strategies include: data cleaning, balancing, replacing, imputing, partitioning, scaling, augmenting and unbiasing etc.
 
-* **Clean** (**replace, impute, remove outliers and duplicates)** — Remove outliers and duplicates, replace inaccurate or irrelevant data, and correct missing data using imputation techniques that will minimize bias as part of data cleaning.
-* **Partition** — Randomly split data into train, validate, and test sets yo prevent ML models from overfitting and evaluate trained model accurately.
-* **Scale (normalize, standardize)** — Having features on  normally distributed scale ensures that each feature is equally important. This will make it easier for many ML algorithms . Normalized numeric features have values between 0 and 1. Standardized numeric features better handle outliers and have a mean of 0 and standard deviation of 1.
-* **Unbias, balance** **(detection & mitigation)** — Avoid inaccurate model results by detecting and mitigatin bias. An example of bias is if our dataset only includes hotel bookings from customer in a particular income range.
+* **Clean** — Remove outliers and duplicates, replace inaccurate or irrelevant data, and correct missing data using imputation techniques that will minimize bias as part of data cleaning.
+* **Partition** — Randomly split data into train, validate, and test sets to prevent ML models from overfitting and evaluate trained model accurately.
+* **Scale** — Having features on normally distributed scale ensures that each feature is equally important. This will make it easier for many ML algorithms . Normalized numeric features have values between 0 and 1. Standardized numeric features better handle outliers and have a mean of 0 and standard deviation of 1.
+* **Unbias** — Avoid inaccurate model results by detecting and mitigation bias. An example of bias is if our dataset only includes hotel bookings from customer in a particular income range.
+* **
 * **Augment** — Data augmentation increases the amount of data artificially by synthesizing new data from existing data. Data augmentation helps regularize data and reduces overfitting.
 
 ### Feature Engineering
 
-After you explore and understand your data, you can move to *feature engineerin*g. Each data attribute is a feature such as the arrival date and time of checking in, length of stay, number of guests, and more. 
+After you explore and understand your data, you can move to *feature engineerin*g. Each data attribute is a feature such as the `arrival date`, `time of checking in`, `length of stay`, `number of guests`, and more. 
 
-Feature engineering is a process to select and transform variables when creating a predictive model. Feature engineering typically includes feature creation, feature transformation, feature extraction, and feature selection.
+Feature engineering is a process to select and transform variables when creating a predictive model. Feature engineering typically includes: 
+* feature creation
+* feature transformation
+* feature extraction
+* feature selection
 
-**Feature creation** is creating new features from existing data to help with better predictions. Examples of feature creation techniques include: one-hot-encoding, binning, splitting, and calculated features.
-**Feature transformation and imputation** manage replacing missing features or features that are not valid. Some techniques include: forming Cartesian products of features, non-linear transformations (such as binning numeric variables into categories), and creating domain-speciﬁc features.
-**Feature extraction** involves reducing the amount of data to be processed using dimensionality reduction techniques like principle component analysis as an example (PCA). This reduces the required amount of memory and computing power , while still accurately maintaining original data characteristics.
-**Feature selection** is the process of selecting subset of extracted features. This subset is relevant and contributes to minimizing the error rate of a trained model. Feature importance score and correlation matrix can be factors in selecting the most relevant features for model training.
+### Feature Creation
+Feature creation is creating new features from existing data to help with better predictions. Examples of feature creation techniques include: one-hot-encoding, binning, splitting, and calculated features etc.
+
+### Feature Transformation
+Feature transformation 
+
+It also includes imputation tech** manage replacing missing features or features that are not valid. Some techniques include: forming Cartesian products of features, non-linear transformations (such as binning numeric variables into categories), and creating domain-speciﬁc features.
+
+### Feature Extraction
+Feature extraction involves reducing the amount of data to be processed using dimensionality reduction techniques like principle component analysis as an example (PCA). This reduces the required amount of memory and computing power , while still accurately maintaining original data characteristics.
+
+### Feature Selection
+Feature selection is the process of selecting subset of extracted features. This subset is relevant and contributes to minimizing the error rate of a trained model. Feature importance score and correlation matrix can be factors in selecting the most relevant features for model training.
