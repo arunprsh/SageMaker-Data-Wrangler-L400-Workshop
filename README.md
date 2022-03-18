@@ -75,7 +75,7 @@ TODO
 
 ---
 
-**Evaluate Feature importance** 
+**Evaluate Feature Importance** 
 * Which features are most important to predict cancelations?
 
 ---
@@ -84,7 +84,7 @@ TODO
 
 | Contributor  | Alias  | 
 |---|---|
-|`Arunprasath Shankar`| `@arunprsh@`|
+|`Arunprasath Shankar`| `arunprsh@`|
 |`Peter Chung`|`pechung@`|
 
 ---
