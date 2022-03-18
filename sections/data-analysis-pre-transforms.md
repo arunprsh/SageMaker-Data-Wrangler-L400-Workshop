@@ -12,7 +12,7 @@
 
 
 ### Multicolinearity Inflation Variance Factors
-![inflation-variance-factors-pre](.././img/inflation-variance-factors-pre.png)
+![variance-inflation-factors-pre](.././img/variance-inflation-factors-pre.png)
 
 
 ### Multicolinearity Principal Component Analysis (PCA)
