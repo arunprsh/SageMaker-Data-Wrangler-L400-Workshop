@@ -1,7 +1,7 @@
 ## EDA
 
 ### Target Leakage 
-![target-leakage](.././img/)
+![target-leakage](.././img/target-leakage.png)
 
 ### Feature Correlation (Linear)
 ![lfc](.././img/linear-fc-pre-transform.png)
