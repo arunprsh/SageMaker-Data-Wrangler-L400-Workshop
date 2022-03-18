@@ -9,3 +9,15 @@
 
 ### Feature Correlation (Non-Linear)
 ![non-linear-pre](.././img/non-linear-pre.png)
+
+
+### Multicolinearity Inflation Variance Factors
+![inflation-variance-factors-pre](.././img/inflation-variance-factors-pre.png)
+
+
+### Multicolinearity Principal Component Analysis (PCA)
+![pca-pre](.././img/pca-pre.png)
+
+
+### Multicolinearity Lasso Feature Selection 
+![lasso-pre](.././img/lasso-pre.png)

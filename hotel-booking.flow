@@ -154,6 +154,96 @@
           "name": "default"
         }
       ]
+    },
+    {
+      "node_id": "dc658fbe-e96f-4a25-b88c-031f503fc5c6",
+      "type": "VISUALIZATION",
+      "operator": "sagemaker.visualizations.histogram_0.1",
+      "parameters": {
+        "name": "Class Distribution",
+        "x_axis": "is_canceled",
+        "color_by": "is_canceled"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "580cdcdf-22ee-4360-9448-08866969aedb",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "0286a987-cc7b-4788-9f0d-71ebde08db9c",
+      "type": "VISUALIZATION",
+      "operator": "sagemaker.visualizations.multicolinearity_0.1",
+      "parameters": {
+        "name": "Multicolinearity  Variance Inflation Factors (Pre-Transformation)",
+        "analysis": "Variance inflation factors"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "580cdcdf-22ee-4360-9448-08866969aedb",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "f67407c5-a67c-42fa-a237-ef028f13bb96",
+      "type": "VISUALIZATION",
+      "operator": "sagemaker.visualizations.multicolinearity_0.1",
+      "parameters": {
+        "name": "Multicolinearity PCA (Pre-Transformation)",
+        "analysis": "Principal component analysis"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "580cdcdf-22ee-4360-9448-08866969aedb",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "820865ba-32b6-49fd-9ef7-b124bd0c2329",
+      "type": "VISUALIZATION",
+      "operator": "sagemaker.visualizations.multicolinearity_0.1",
+      "parameters": {
+        "name": "Multicolinearity Lasso Feature Selection (Pre-Transformation)",
+        "lasso_parameters": {
+          "l1": 1,
+          "problem_type": "Classification",
+          "label": "is_canceled"
+        },
+        "analysis": "Lasso feature selection"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "580cdcdf-22ee-4360-9448-08866969aedb",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
     }
   ]
 }
