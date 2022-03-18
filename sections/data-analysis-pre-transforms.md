@@ -4,10 +4,10 @@
 ![target-leakage](.././img/target-leakage.png)
 
 ### Feature Correlation (Linear)
-![lfc](.././img/linear-fc-pre-transform.png)
+![lfc](.././img/linear-pre.png)
 
 
 ### Feature Correlation (Non-Linear)
-![nlfc](.././img/nonlinear-fc-pre-transform.png)
+![nlfc](.././img/non-linear-pre.png)
 
 

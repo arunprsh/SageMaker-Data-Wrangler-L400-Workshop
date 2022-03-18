@@ -131,6 +131,29 @@
           "name": "default"
         }
       ]
+    },
+    {
+      "node_id": "d4457ea4-2911-4d6f-a9b5-2d6380738b9e",
+      "type": "VISUALIZATION",
+      "operator": "sagemaker.visualizations.target_leakage_0.1",
+      "parameters": {
+        "name": "Target Leakage (Pre-Transformation)",
+        "max_features": "40",
+        "problem_type": "classification",
+        "target": "is_canceled"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "580cdcdf-22ee-4360-9448-08866969aedb",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
     }
   ]
 }
