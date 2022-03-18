@@ -9,5 +9,3 @@
 
 ### Feature Correlation (Non-Linear)
 ![non-linear-pre](.././img/non-linear-pre.png)
-
-
