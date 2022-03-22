@@ -50,15 +50,15 @@
 
 ### Outline
 
-**[Machine Learning Life Cycle](/sections/000-ml-lifecycle.md)Machine Learning Life Cycle**
+**[Machine Learning Life Cycle](/sections/000-ml-lifecycle.md)**
 
-**Data Preparation**
+**[Data Preparation](/sections/001-data-preparation.md)**
     
-**Amazon SageMaker**
+**[Amazon SageMaker](/sections/002-sagemaker.md)**
  
-**SageMaker Studio**
+**[Data Wrangler](/sections/003-data-wrangler.md)**
 
-**Data Wrangler Introduction**
+**[Getting started with Data Wrangler](/sections/004-getting-started-with-data-wrangler.md)**
 
 **Exploratory Data Analysis** 
 TODO
