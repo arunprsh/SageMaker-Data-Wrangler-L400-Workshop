@@ -317,6 +317,160 @@
           "name": "default"
         }
       ]
+    },
+    {
+      "node_id": "d96fbd6a-f6c7-407d-b3e8-c2b2246c7f09",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.manage_rows_0.1",
+      "parameters": {
+        "operator": "Drop duplicates",
+        "drop_duplicates_parameters": {},
+        "sort_parameters": {
+          "order": "Ascending"
+        }
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "93a43194-16ba-4f0b-bb6a-4bee20c9c242",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "c316fa3c-ae3d-41d3-af09-05b2a07c9484",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.handle_missing_0.1",
+      "parameters": {
+        "operator": "Fill missing",
+        "fill_missing_parameters": {
+          "input_column": [
+            "children"
+          ],
+          "fill_value": "0"
+        },
+        "drop_missing_parameters": {},
+        "impute_parameters": {
+          "column_type": "Numeric",
+          "numeric_parameters": {
+            "strategy": "Approximate Median"
+          }
+        }
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "d96fbd6a-f6c7-407d-b3e8-c2b2246c7f09",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "7b1eb690-9a21-4061-82ec-0bc1e029af44",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.manage_columns_0.1",
+      "parameters": {
+        "operator": "Drop column",
+        "drop_column_parameters": {
+          "column_to_drop": [
+            "agent",
+            "company"
+          ]
+        }
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "c316fa3c-ae3d-41d3-af09-05b2a07c9484",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "e79c69e2-c081-40ae-9d37-6da9ceb5d202",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.handle_missing_0.1",
+      "parameters": {
+        "operator": "Fill missing",
+        "fill_missing_parameters": {
+          "input_column": [
+            "country"
+          ],
+          "fill_value": "PRT"
+        },
+        "impute_parameters": {
+          "column_type": "Categorical",
+          "categorical_parameters": {},
+          "numeric_parameters": {
+            "strategy": "Approximate Median"
+          }
+        }
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "7b1eb690-9a21-4061-82ec-0bc1e029af44",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "9d01488d-e2df-4545-8cff-01ef2c2c2a3a",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.handle_outliers_0.1",
+      "parameters": {
+        "operator": "Standard deviation numeric outliers",
+        "standard_deviation_numeric_outliers_parameters": {
+          "standard_deviations": 4,
+          "input_column": [
+            "lead_time",
+            "stays_in_weekend_nights",
+            "stays_in_week_nights",
+            "adults",
+            "is_repeated_guest",
+            "previous_cancellations",
+            "previous_bookings_not_canceled",
+            "booking_changes",
+            "adr",
+            "total_of_special_requests",
+            "required_car_parking_spaces"
+          ],
+          "fix_method": "Clip"
+        },
+        "min_max_numeric_outliers_parameters": {}
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "e79c69e2-c081-40ae-9d37-6da9ceb5d202",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
     }
   ]
 }
