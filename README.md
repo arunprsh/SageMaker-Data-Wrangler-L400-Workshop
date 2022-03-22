@@ -50,7 +50,7 @@
 
 ### Outline
 
-**Machine Learning Life Cycle**
+**[Machine Learning Life Cycle](/sections/000-ml-lifecycle.md)Machine Learning Life Cycle**
 
 **Data Preparation**
     
@@ -60,7 +60,7 @@
 
 **Data Wrangler Introduction**
 
-**Exploratory Data Analysis (Pre-Transformations)** 
+**Exploratory Data Analysis** 
 TODO
 
 ---
