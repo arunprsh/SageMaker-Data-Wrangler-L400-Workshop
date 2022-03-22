@@ -60,41 +60,21 @@
 
 **[Getting started with Data Wrangler](/sections/004-getting-started-with-data-wrangler.md)**
 
-**Exploratory Data Analysis** 
-TODO
+**[Exploratory Data Analysis](/sections/007-data-analysis.md)** (in progress) 
+
+**[Data Transformations](/sections/008-data-transformations.md)** (in progress)
+
+**[Integration with other SageMaker components](/sections/009-integration-with-other-sagemaker-components.md)** (in progress)
+
+**[Default Limits](/sections/010-default-limits.md)** (in progress)
+
+**[Security & Permissions](/sections/011-security-and-permissions.md)** (in progress)
+
+**[Multi-account Patterns](/sections/012-multi-account-patterns.md)** (in progress)
+
+**[Next Steps](/sections/next-steps.md)** (in progress)
 
 ---
-
-**Feature Transformations** 
-TODO
-
----
-
-**Quick Model & Feature Importance** 
-TODO
-
----
-**Integration with other SageMaker Components**
-TODO
-
----
-**Default Limits**
-TODO
-
----
-**Security & Permissions**
-TODO
-
----
-**Multi-account Patterns**
-TODO
-
----
-**Next Steps**
-TODO
-
----
-
 **Contributors**
 
 | Contributor  | Alias  | 
