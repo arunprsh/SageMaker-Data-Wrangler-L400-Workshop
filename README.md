@@ -70,13 +70,28 @@ TODO
 
 ---
 
-**Data Analysis (Post-Transformations)** 
+**Quick Model & Feature Importance** 
 TODO
 
 ---
+**Integration with other SageMaker Components**
+TODO
 
-**Evaluate Feature Importance** 
-* Which features are most important to predict cancelations?
+---
+**Default Limits**
+TODO
+
+---
+**Security & Permissions**
+TODO
+
+---
+**Multi-account Patterns**
+TODO
+
+---
+**Next Steps**
+TODO
 
 ---
 
@@ -86,5 +101,6 @@ TODO
 |---|---|
 |`Arunprasath Shankar`| `arunprsh@`|
 |`Peter Chung`|`pechung@`|
+|`Vadim Omeltchenko`|`vadimo@`|
 
 ---
