@@ -33,6 +33,11 @@ drop columns `adults`, `agents`
 
 ### Drop duplicate columns 
 
+
+### handle outliers 
+
+
+
 ### Handle missing values 
 
 children replace with 0 based on value counts 
@@ -42,8 +47,16 @@ company column ?
 
 Fill missing country column with `PRT` based on value counts 
 
+Custom Transform - Meal type has Undefined category, changing the Undefined value to the most used which is BB by implementing a custom pyspark transform with two simple lines of code
 
-Outliers ?
+```python
+from pyspark.sql.functions import when
+
+df = df.withColumn('meal', when(df.meal == 'Undefined', 'BB').otherwise(df.meal))
+```
+
+
+
 
 
 Standardize numeric outliers 
