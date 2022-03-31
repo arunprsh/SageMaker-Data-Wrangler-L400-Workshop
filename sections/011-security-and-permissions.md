@@ -7,7 +7,7 @@ Amazon SageMaker Studio runs in its own AWS managed account. You can securely ac
 ## Architecture overview
 
 Below diagram shows how VPC only communication with the internet
-[Image: image.png]
+![vpc-mode](.././img/vpc-mode.png)
 
 ## Setting up your environment
 
@@ -64,7 +64,7 @@ To create your user profile on the console, complete the following steps:
 3. For User name, enter a name (for example, `demo-user`).
 4. For Execution role, choose your IAM role (the default is `studiovpc-notebook-role`).
 
-[Image: image.png]
+![demo-user](.././img/demo-user.png)
 
 
 ## Accessing Amazon SageMaker Studio
