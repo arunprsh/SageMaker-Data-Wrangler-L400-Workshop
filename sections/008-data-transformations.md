@@ -25,6 +25,59 @@
  
 we had already dropped it since it was also a target leakage 
 
+
+based on multi-colinearity results 
+
+VIF > 5
+drop columns `adults`, `agents`
+
+### Drop duplicate columns 
+
+### Handle missing values 
+
+children replace with 0 based on value counts 
+
+company column ?
+
+
+Fill missing country column with `PRT` based on value counts 
+
+
+Outliers ?
+
+
+Standardize numeric outliers 
+
+`lead_time`, `stays_weekend_nights`, `stays_weekend_nights`, `is_repeated_guest`, `prev_cancellations`, `prev_bookings_not_canceled`, `booking_changes`, `adr`, `total_of_specical_requests`, `required_car_parking_spaces`
+
+
+Handle categorical data
+`meal`, `is_repeated_guest`, `market_segment`, `assigned_room_type`, `deposit_type`, `customer_type`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 
