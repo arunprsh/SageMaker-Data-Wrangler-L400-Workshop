@@ -90,9 +90,15 @@ Handle categorical data
 `is_canceled` = 0 (negative case)
 `is_canceled` = 1 (positive case)
 
-The ratio of positive to negative case = 23589/62440 = ~0.38
+The ratio of positive to negative case = ~0.38
+![quick-model-post](.././img/class-before-smote.png)
 
-Balance using SMOTE
+Balance using under/over sampling or SMOTE 
+After balancing, the ratio is 1 
+![quick-model-post](.././img/class-after-smote.png)
+
+
+
 
 
 
