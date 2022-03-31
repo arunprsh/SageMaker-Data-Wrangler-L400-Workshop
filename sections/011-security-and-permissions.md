@@ -74,9 +74,11 @@ To use the console, on the Studio Control Panel, locate your user name and choos
 To use the AWS CLI, enter the following code:
 
 `#Now let's create the pre-signed URL
-aws sagemaker create-presigned-domain-url \--region $REGION \
- --domain-id $DOMAIN_ID \--user-profile-name $USER_PROFILE_NAME
-#Please take note of the Domain URL, and paste it on a browser that have VPC Connectivity
-# You can also try login with Windows EC2 instance in the same VPC and access the SageMaker Studio`
+```bash
+$ aws sagemaker create-presigned-domain-url --region $REGION --domain-id $DOMAIN_ID --user-profile-name $USER_PROFILE_NAME
+```
+ 
+Please take note of the Domain URL, and paste it on a browser that have VPC Connectivity
+You can also try login with Windows EC2 instance in the same VPC and access the SageMaker Studio`
 
 
