@@ -6,7 +6,7 @@
 
 **Dataset**
 
-* [Hotel Booking Demand dataset](https://www.kaggle.com/jessemostipak/hotel-booking-demand) - This data set contains booking information for a city hotel and a resort hotel, and includes information such as when the booking was made, length of stay, the number of adults, children, and/or babies, and the number of available parking spaces, among other things. <br>
+* [Hotel Booking Demand dataset](https://www.kaggle.com/jessemostipak/hotel-booking-demand) - This data set contains booking information for a city hotel and a resort hotel, and includes information such as when the booking was made, length of stay, the number of adults, children, and/or babies, and the number of available parking spaces, among other things. <br> <br>
 ![Hotel Booking](./img/hotel-booking.png)<br>
 
 **Description of the columns**
@@ -82,5 +82,8 @@
 |`Arunprasath Shankar`| `arunprsh@`|
 |`Peter Chung`|`pechung@`|
 |`Vadim Omeltchenko`|`vadimo@`|
+|`Alex Voitau`|`voitau@`|
+|`Jason Nicholls`|`nicjas@`|
+
 
 ---
