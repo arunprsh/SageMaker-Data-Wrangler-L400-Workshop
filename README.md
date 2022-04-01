@@ -66,13 +66,9 @@
 
 **[Integration with other SageMaker components](/sections/009-integration-with-other-sagemaker-components.md)** (in progress)
 
-**[Default Limits](/sections/010-default-limits.md)** (in progress)
-
 **[Security & Permissions](/sections/011-security-and-permissions.md)** (in progress)
 
 **[Multi-account Patterns](/sections/012-multi-account-patterns.md)** (in progress)
-
-**[Next Steps](/sections/next-steps.md)** (in progress)
 
 ---
 **Contributors**
