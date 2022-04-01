@@ -70,6 +70,8 @@
 
 **[Multi-account Patterns](/sections/012-multi-account-patterns.md)** (in progress)
 
+**[Useful Resources](/sections/013-useful-resources.md)** (in progress)
+
 ---
 **Contributors**
 
