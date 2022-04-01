@@ -1,4 +1,25 @@
-## EDA
+## Analyze and Visualize 
+
+Amazon SageMaker Data Wrangler includes built-in analyses that help you generate visualizations and data analyses in a few clicks. You can also create custom analyses using your own code.
+
+You add an analysis to a dataframe by selecting a step in your data flow, and then choosing Add analysis. To access an analysis you've created, select the step that contains the analysis, and select the analysis.
+
+All analyses are generated using 100,000 rows of your dataset.
+
+You can add the following analysis to a dataframe:
+
+    Data visualizations, including histograms and scatter plots.
+
+    A quick summary of your dataset, including number of entries, minimum and maximum values (for numeric data), and most and least frequent categories (for categorical data).
+
+    A quick model of the dataset, which can be used to generate an importance score for each feature.
+
+    A target leakage report, which you can use to determine if one or more features are strongly correlated with your target feature.
+
+    A custom visualization using your own code.
+
+
+
 
 ### Target Leakage 
 ![target-leakage](.././img/target-leakage.png)
