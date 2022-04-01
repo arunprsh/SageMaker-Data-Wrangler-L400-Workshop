@@ -73,7 +73,7 @@ We now have a Studio domain associated to our VPC and a user profile in this dom
 To use the console, on the Studio Control Panel, locate your user name and choose Open Studio.
 To use the AWS CLI, enter the following code:
 
-`#Now let's create the pre-signed URL
+Now let's create the pre-signed URL
 ```bash
 $ aws sagemaker create-presigned-domain-url --region $REGION --domain-id $DOMAIN_ID --user-profile-name $USER_PROFILE_NAME
 ```
