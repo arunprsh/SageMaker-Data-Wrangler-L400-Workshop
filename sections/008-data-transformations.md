@@ -128,3 +128,6 @@ After balancing, the ratio is 1
 ### Quick Model 
 ![quick-model-post](.././img/quick-model-post.png)
 
+
+
+For more information on the different types of transformations Data Wrangler offers, visit the official documentation ![here](https://docs.aws.amazon.com/sagemaker/latest/dg/data-wrangler-transform.html) 
