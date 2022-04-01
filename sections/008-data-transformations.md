@@ -1,8 +1,16 @@
-## Data Transformations 
+## Transform Data
+Amazon SageMaker Data Wrangler provides numerous ML data transforms to streamline cleaning, transforming, and featurizing your data. When you add a transform, it adds a step to the data flow. Each transform you add modifies your dataset and produces a new dataframe. All subsequent transforms apply to the resulting dataframe.
+
+Data Wrangler includes built-in transforms, which you can use to transform columns without any code. You can also add custom transformations using PySpark, Pandas, and PySpark SQL. Some transforms operate in place, while others create a new output column in your dataset.
+
+You can apply transforms to multiple columns at once. For example, you can delete multiple columns in a single step.
+
+You can apply the process numeric and handle missing transforms only to a single column.
+
+Use this page to learn more about these built-in and custom transforms.
 
 
-
- ### Drop Columns 
+### Drop Columns 
  drop columns based on the analyses we performed in the previous section. 
  
  
@@ -54,10 +62,6 @@ from pyspark.sql.functions import when
 
 df = df.withColumn('meal', when(df.meal == 'Undefined', 'BB').otherwise(df.meal))
 ```
-
-
-
-
 
 Standardize numeric outliers 
 
