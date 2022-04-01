@@ -49,22 +49,17 @@ drop columns `adults`, `agents`
  
  
 ### handle outliers 
-
-
+ ![duplicate-1](.././img/outliers.png)
 
 
 ### Handle missing values 
 
- ![fill-missing-children](.././img/fill-missing-children.png)
- ![fill-missing-country](.././img/fill-missing-country.png)
-
 children replace with 0 based on value counts 
-
-company column ?
-
-
+![fill-missing-children](.././img/fill-missing-children.png)
+ 
+ 
 Fill missing country column with `PRT` based on value counts 
-
+![fill-missing-country](.././img/fill-missing-country.png)
 
 
 Custom Transform - Meal type has Undefined category, changing the Undefined value to the most used which is BB by implementing a custom pyspark transform with two simple lines of code
@@ -76,48 +71,21 @@ df = df.withColumn('meal', when(df.meal == 'Undefined', 'BB').otherwise(df.meal)
 ```
 
 Standardize numeric outliers 
+ ![scale-numeric](.././img/scale-numeric.png)
 
 `lead_time`, `stays_weekend_nights`, `stays_weekend_nights`, `is_repeated_guest`, `prev_cancellations`, `prev_bookings_not_canceled`, `booking_changes`, `adr`, `total_of_specical_requests`, `required_car_parking_spaces`
 
 
 Handle categorical data
+ ![scale-categorical](.././img/scale-categorical.png)
 `meal`, `is_repeated_guest`, `market_segment`, `assigned_room_type`, `deposit_type`, `customer_type`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
 
 ### Balancing the target variable 
 
 `is_canceled` = 0 (negative case)
 `is_canceled` = 1 (positive case)
+![random-oversample](.././img/random-oversample.png)
+
 
 The ratio of positive to negative case = ~0.38
 ![quick-model-post](.././img/class-before-smote.png)
