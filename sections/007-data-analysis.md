@@ -16,6 +16,18 @@ You can add the following analysis to a dataframe:
 
 
 ### Target Leakage 
+Target leakage occurs when there is data in a machine learning training dataset that is strongly correlated with the target label, but is not available in real-world data. For example, you may have a column in your dataset that serves as a proxy for the column you want to predict with your model.
+
+When you use the Target Leakage analysis, you specify the following:
+* **Target**: This is the feature about which you want your ML model to be able to make predictions.
+* **Problem type**: This is the ML problem type on which you are working. Problem type can either be classification or regression.
+* (Optional) **Max features**: This is the maximum number of features to present in the visualization, which shows features ranked by their risk of being target leakage.
+
+For classification, the target leakage analysis uses the area under the receiver operating characteristic, or AUC - ROC curve for each column, up to Max features. For regression, it uses a coefficient of determination, or R2 metric.
+
+The AUC - ROC curve provides a predictive metric, computed individually for each column using cross-validation, on a sample of up to around 1000 rows. A score of 1 indicates perfect predictive abilities, which often indicates target leakage. A score of 0.5 or lower indicates that the information on the column could not provide, on its own, any useful information towards predicting the target. Although it can happen that a column is uninformative on its own but is useful in predicting the target when used in tandem with other features, a low score could indicate the feature is redundant.
+
+For example, the following image shows a target leakage report for a hotel booking cancellation problem, that is, predicting if a person will cancel his hotel reservation or not. An AUC - ROC curve is used to calculate the predictive ability of five features, and all are determined to be safe from target leakage. 
 ![target-leakage](.././img/target-leakage.png)
 
 ### Feature Correlation (Linear)
