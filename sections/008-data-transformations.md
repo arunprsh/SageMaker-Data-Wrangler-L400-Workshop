@@ -55,12 +55,17 @@ drop columns `adults`, `agents`
 
 ### Handle missing values 
 
+ ![fill-missing-children](.././img/fill-missing-children.png)
+ ![fill-missing-country](.././img/fill-missing-country.png)
+
 children replace with 0 based on value counts 
 
 company column ?
 
 
 Fill missing country column with `PRT` based on value counts 
+
+
 
 Custom Transform - Meal type has Undefined category, changing the Undefined value to the most used which is BB by implementing a custom pyspark transform with two simple lines of code
  ![custom-pyspark](.././img/custom-pyspark.png)
