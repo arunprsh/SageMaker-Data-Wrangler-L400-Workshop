@@ -31,6 +31,8 @@ Use this page to learn more about these built-in and custom transforms.
  based on non-linear correlation results
  we need to drop `reservation_status`
  
+ ![drop-columns](.././img/drop-columns.png)
+ 
 we had already dropped it since it was also a target leakage 
 
 
@@ -39,12 +41,15 @@ based on multi-colinearity results
 VIF > 5
 drop columns `adults`, `agents`
 
-### Drop duplicate columns 
+ ![drop-more-columns](.././img/drop-more-columns.png)
 
+### Drop duplicate columns 
+ ![drop-duplicates](.././img/drop-duplicates.png)
  ![duplicate-1](.././img/duplicate-1.png)
  
  
 ### handle outliers 
+
 
 
 
@@ -58,7 +63,7 @@ company column ?
 Fill missing country column with `PRT` based on value counts 
 
 Custom Transform - Meal type has Undefined category, changing the Undefined value to the most used which is BB by implementing a custom pyspark transform with two simple lines of code
-
+ ![custom-pyspark](.././img/custom-pyspark.png)
 ```python
 from pyspark.sql.functions import when
 
