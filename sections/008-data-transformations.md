@@ -13,6 +13,7 @@ Use this page to learn more about these built-in and custom transforms.
 ### Drop Columns 
  drop columns based on the analyses we performed in the previous section. 
  
+ ![duplicate-1](.././img/duplicate-1.png)
  
  based on target leakage
  
