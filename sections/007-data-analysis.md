@@ -4,6 +4,8 @@ Amazon SageMaker Data Wrangler includes built-in analyses that help you generate
 
 You add an analysis to a dataframe by selecting a step in your data flow, and then choosing Add analysis. To access an analysis you've created, select the step that contains the analysis, and select the analysis.
 
+Before we transform our raw features to make it ML ready for model building, lets analyze and visualize the booking cancellations dataset to detect features that are important to our problem and ones that are not. 
+
 All analyses are generated using 100,000 rows of your dataset.
 
 You can add the following analysis to a dataframe:
@@ -29,9 +31,16 @@ The AUC - ROC curve provides a predictive metric, computed individually for each
 
 For our example dataset, the image below shows a target leakage report for a hotel booking cancellation problem, that is, predicting if a person will cancel his hotel reservation or not. An AUC - ROC curve is used to calculate the predictive ability of 31 raw features, out of which `reservation_status` was determined to a target leakage. Also, features - `arrival_day_of_month`, `babies`, `reservation_status_date`, `arrival_date_month`, `reserved_room_type`, `hotel` and `days_in_waiting_list` were identified as redundant.
 
+The identified features can be fairly omitted as part of the transformations we will apply post this initial analysis.
+
 ![target-leakage](.././img/target-leakage.png)
 
+Next, with SageMaker Data Wrangler’s feature correlation visualization you can easily calculate the correlation of features in your data set and visualize them as a correlation matrix. We will look into 2 types of feature correlations and how to use them on our example dataset in hand.
+
 ### Feature Correlation (Linear)
+
+P.S.: A limit of 100,000 rows is used for this analysis.
+
 ![linear-pre](.././img/linear-pre.png)
 
 
@@ -53,7 +62,7 @@ For our example dataset, the image below shows a target leakage report for a hot
 
 ### Detect Duplicate Rows
 ![duplicate](.././img/duplicate-2.png)
-
+With the new duplicate row detection visualization, you can quickly detect if your data set has any duplicate rows.
 
 ### Quick Model
 
