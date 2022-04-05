@@ -60,21 +60,40 @@ Numeric to numeric correlation is in the range [-1, 1] where 0 implies no correl
 
 Features that are not either numeric or categorical are ignored.
 
-The table below lists for each feature what is the most correlated feature to it.
-	
+The table below lists for each feature what is the most correlated feature to it. You can see most of the top correlated feature pairs overlap with the previous two analyses.
     
 ![non-linear-pre](.././img/non-linear-pre.png)
 
 
-### Multicolinearity Inflation Variance Factors
+### Multicolinearity (Variance Inflation Factors)
+
+Variance Inflation Factor (VIF) is a measure of colinearity among variables. It is calculated by solving a regression problem to predict one variable given the rest. A VIF score is a positive number that is greater or equal than 1, and a score of 1 means the variable is completely independent of the others. The larger the score, the more dependent it is. Since it is an inverse, it is possible for the VIF score to be infinite. Note that we cap the VIF score at 50. As a rule of thumb for cases where the number of samples is not abnormally small, a score of up to 5 means the variable is only moderatly correlated, and beyond 5 it is highly correlated.
+
+
+`arrival_date_year`, `adults`, `agents`, `arrival_date_week_number` and `stays_in_week_nights`
+
 ![variance-inflation-factors-pre](.././img/variance-inflation-factors-pre.png)
 
 
-### Multicolinearity Principal Component Analysis (PCA)
+### Multicolinearity - Principal Component Analysis (PCA)
+
+Principal Component Analysis (PCA) measures the variance of the data along different directions in the feature space. The ordered list of variances, also known as the singular values, can inform about multicolinearity in our data. This list contains non-negative numbers. When the numbers are roughly uniform, the data has very few multicolinearities. However, when the opposite is true, the magnitude of the top values will dominate the rest. In order to avoid issues related to different scales, the individual features are standardized to have mean 0 and standard deviation 1 before applying PCA.
+
+
+
 ![pca-pre](.././img/pca-pre.png)
 
 
 ### Multicolinearity Lasso Feature Selection 
+
+
+Lasso feature selection trains a linear classifier with L1 regularization (you can control the strength of L1 penalty by adjusting "L1 magnitude") that induces a sparse solution. The regressor provides a coefficient for each feature, and the absolute value of this coefficient could be interpreted as an importance score for that feature.
+The plot below provides features' importance scores (absolute coefficients) after training a classifier on a sample of the dataset (10k for large dataset). The training process includes a standardization of the features to have mean 0 and standard deviation 1 in order to avoid a skewed importance score due to different scales.
+ 
+The classifier obtained a roc_auc score: 0.639269142214666.
+
+
+
 ![lasso-pre](.././img/lasso-pre.png)
 
 
