@@ -45,13 +45,26 @@ Numeric to numeric correlation is in the range [-1, 1] where 0 implies no correl
 
 Features that are not either numeric or categorical are ignored.
 
-The table (below image) lists for each feature what is the most correlated feature to it.
+The table below lists for each feature what is the most correlated feature to it. Based on the correlation values, we can see the top 6 feature pairs (as listed below) are strongly correlating with one another. Also, some of these features also showed up in the target analysis we did previously.
+
+![linear-pre](.././img/linear-strongly-correlated.png)
+
 P.S.: A limit of 100,000 rows is used for this analysis.
 
 ![linear-pre](.././img/linear-pre.png)
 
 
 ### Feature Correlation (Non-Linear)
+
+Non-linear feature correlation is based on Spearman's rank correlation. Numeric to categorical correlation is calculated by encoding the categorical features as the floating point numbers that best predict the numeric feature before calculating Spearman's rank correlation. Categorical to categorical correlation is based on the normalized Cramer's V test.
+
+Numeric to numeric correlation is in the range [-1, 1] where 0 implies no correlation, 1 implies perfect correlation and -1 implies perfect inverse correlation. Numeric to categorical and categorical to categrical correlations are in the range [0, 1] where 0 implies no correlation and 1 implies perfect correlation
+
+Features that are not either numeric or categorical are ignored.
+
+The table below lists for each feature what is the most correlated feature to it.
+	
+    
 ![non-linear-pre](.././img/non-linear-pre.png)
 
 
