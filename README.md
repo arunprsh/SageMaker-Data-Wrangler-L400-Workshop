@@ -86,7 +86,6 @@
 |`Peter Chung`|`pechung@`|
 |`Amogh Gaikwad`|`gaiamogh@`|
 |`Alex Voitau`|`voitau@`|
-|`Jason Nicholls`|`nicjas@`|
 |`Amogh Gaikwad`|`gaiamogh@`|
 
 ---
