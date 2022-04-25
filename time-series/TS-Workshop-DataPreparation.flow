@@ -1,0 +1,584 @@
+{
+  "metadata": {
+    "version": 1,
+    "disable_limits": false
+  },
+  "nodes": [
+    {
+      "node_id": "2582339b-8ec4-40ce-8c51-752d45066813",
+      "type": "SOURCE",
+      "operator": "sagemaker.s3_source_0.1",
+      "parameters": {
+        "dataset_definition": {
+          "__typename": "S3CreateDatasetDefinitionOutput",
+          "datasetSourceType": "S3",
+          "name": "trip_data",
+          "description": null,
+          "s3ExecutionContext": {
+            "__typename": "S3ExecutionContext",
+            "s3Uri": "s3://979894173312-us-east-1-datawranglertimeseries-6596/trip data/",
+            "s3ContentType": "csv",
+            "s3HasHeader": true,
+            "s3FieldDelimiter": ",",
+            "s3DirIncludesNested": false,
+            "s3AddsFilenameColumn": false
+          }
+        }
+      },
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "default",
+          "sampling": {
+            "sampling_method": "sample_by_limit",
+            "limit_rows": 50000
+          }
+        }
+      ]
+    },
+    {
+      "node_id": "41169f4c-2bd8-40c5-b2f0-4b74dfc4717f",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.infer_and_cast_type_0.1",
+      "parameters": {},
+      "trained_parameters": {
+        "schema": {
+          "VendorID": "long",
+          "tpep_pickup_datetime": "datetime",
+          "tpep_dropoff_datetime": "datetime",
+          "passenger_count": "long",
+          "trip_distance": "float",
+          "RatecodeID": "long",
+          "store_and_fwd_flag": "string",
+          "PULocationID": "long",
+          "DOLocationID": "long",
+          "payment_type": "long",
+          "fare_amount": "float",
+          "extra": "float",
+          "mta_tax": "float",
+          "tip_amount": "float",
+          "tolls_amount": "float",
+          "improvement_surcharge": "float",
+          "total_amount": "float",
+          "congestion_surcharge": "float"
+        }
+      },
+      "inputs": [
+        {
+          "name": "default",
+          "node_id": "2582339b-8ec4-40ce-8c51-752d45066813",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "aa2f4745-bd91-4d89-85be-6da093ab65f7",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.manage_columns_0.1",
+      "parameters": {
+        "operator": "Drop column",
+        "drop_column_parameters": {
+          "column_to_drop": [
+            "VendorID",
+            "RatecodeID",
+            "store_and_fwd_flag",
+            "DOLocationID",
+            "payment_type",
+            "fare_amount",
+            "extra",
+            "mta_tax",
+            "tolls_amount",
+            "improvement_surcharge",
+            "passenger_count",
+            "congestion_surcharge"
+          ]
+        }
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "41169f4c-2bd8-40c5-b2f0-4b74dfc4717f",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "b6fc7d7f-d890-4665-840c-dd6d063b947f",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.time_series_0.1",
+      "parameters": {
+        "Validate timestamps_parameters": {
+          "timestamp_column": "tpep_pickup_datetime",
+          "policy": "drop"
+        },
+        "operator": "Validate timestamps"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "aa2f4745-bd91-4d89-85be-6da093ab65f7",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "76599431-969b-44f1-a0ab-9cfc43eaea87",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.time_series_0.1",
+      "parameters": {
+        "Validate timestamps_parameters": {
+          "timestamp_column": "tpep_dropoff_datetime",
+          "policy": "drop"
+        },
+        "operator": "Validate timestamps"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "b6fc7d7f-d890-4665-840c-dd6d063b947f",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "582da950-7d57-47d7-9b45-609d29b44084",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.custom_code_0.1",
+      "parameters": {
+        "operator": "Python (PySpark)",
+        "pyspark_parameters": {
+          "code": "from pyspark.sql.functions import col, round\ndf = df.withColumn('duration', round((col(\"tpep_dropoff_datetime\").cast(\"long\")-col(\"tpep_pickup_datetime\").cast(\"long\"))/60,2))\ndf = df.drop(\"tpep_dropoff_datetime\")"
+        }
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "76599431-969b-44f1-a0ab-9cfc43eaea87",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "4242b445-9d1a-4a7a-979f-f6e755093895",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.handle_missing_0.1",
+      "parameters": {
+        "operator": "Fill missing",
+        "fill_missing_parameters": {
+          "input_column": [
+            "PULocationID",
+            "tip_amount",
+            "total_amount"
+          ],
+          "fill_value": "0"
+        },
+        "impute_parameters": {
+          "column_type": "Numeric",
+          "numeric_parameters": {
+            "strategy": "Approximate Median"
+          }
+        }
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "582da950-7d57-47d7-9b45-609d29b44084",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "305e53df-2fb3-4eb7-a481-01f76b58668f",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.time_series_0.1",
+      "parameters": {
+        "Handle missing_parameters": {
+          "hm_input_type_Along column_parameters": {
+            "hmac_output_column": "",
+            "hmac_id_column": "PULocationID",
+            "hmac_strategy": "Constant Value",
+            "hmac_leftovernans": "Fill with Forward/Backward feed",
+            "hmac_strategy_Constant Value_parameters": {
+              "hmac_custom_value": "0.0"
+            },
+            "hmac_strategy_Interpolate_parameters": {
+              "hmac_interpolation_technique": "linear"
+            },
+            "hmac_sequence_column": "trip_distance",
+            "hmac_timestamp_column": "tpep_pickup_datetime"
+          },
+          "hm_input_type": "Along column"
+        },
+        "operator": "Handle missing"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "4242b445-9d1a-4a7a-979f-f6e755093895",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "9733ab2e-0ef6-4848-9943-20d2d7559b28",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.custom_code_0.1",
+      "parameters": {
+        "operator": "Python (PySpark)",
+        "pyspark_parameters": {
+          "code": "df = df.filter(df.trip_distance >= 0)\ndf = df.filter(df.tip_amount >= 0)\ndf = df.filter(df.total_amount >= 0)\ndf = df.filter(df.duration >= 1)\ndf = df.filter((1 <= df.PULocationID) & (df.PULocationID <= 263))\ndf = df.filter((df.tpep_pickup_datetime >= \"2019-01-01 00:00:00\") & (df.tpep_pickup_datetime < \"2020-03-01 00:00:00\"))"
+        }
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "305e53df-2fb3-4eb7-a481-01f76b58668f",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "3c85c193-6e25-49a6-8c3b-2704a5baa85d",
+      "type": "VISUALIZATION",
+      "operator": "sagemaker.visualizations.describe_0.1",
+      "parameters": {
+        "name": "Cleaned dataset summary"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "9733ab2e-0ef6-4848-9943-20d2d7559b28",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "8b6f4c91-7eff-40e0-9716-fd7f29776ff5",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.handle_outliers_0.1",
+      "parameters": {
+        "operator": "Standard deviation numeric outliers",
+        "standard_deviation_numeric_outliers_parameters": {
+          "standard_deviations": 4,
+          "input_column": [
+            "trip_distance",
+            "tip_amount",
+            "total_amount",
+            "duration"
+          ],
+          "fix_method": "Remove"
+        }
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "9733ab2e-0ef6-4848-9943-20d2d7559b28",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "7bad035f-1dc4-4505-84c2-e3abacff38de",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.custom_code_0.1",
+      "parameters": {
+        "operator": "Python (PySpark)",
+        "pyspark_parameters": {
+          "code": "from pyspark.sql.functions import col, date_trunc\ndf = df.withColumn('pickup_time', date_trunc(\"hour\",col(\"tpep_pickup_datetime\")))\ndf = df.drop(\"tpep_pickup_datetime\")"
+        }
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "8b6f4c91-7eff-40e0-9716-fd7f29776ff5",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "358cef7f-f56e-432c-bd7f-165ad33d5011",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.custom_code_0.1",
+      "parameters": {
+        "operator": "Python (PySpark)",
+        "pyspark_parameters": {
+          "code": "from pyspark.sql import functions as f\nfrom pyspark.sql import Window\ndf = df.withColumn('count', f.count( 'duration').over(Window.partitionBy([f.col(\"pickup_time\"), f.col(\"PULocationID\")])))"
+        }
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "7bad035f-1dc4-4505-84c2-e3abacff38de",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "40b75fa1-bfb2-4334-b5b9-9374e5ada64c",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.time_series_0.1",
+      "parameters": {
+        "Resample_parameters": {
+          "frequency": {
+            "quantity": 1,
+            "offset_description": "Hourly"
+          },
+          "downsample": {
+            "non_numeric": "most common",
+            "numeric": "mean"
+          },
+          "upsample": {
+            "non_numeric": "ffill",
+            "numeric": "linear"
+          },
+          "timestamp_column": "pickup_time",
+          "id_column": "PULocationID"
+        },
+        "operator": "Resample"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "358cef7f-f56e-432c-bd7f-165ad33d5011",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "b1368e8f-cd3a-4761-8880-afd50d48266a",
+      "type": "DESTINATION",
+      "operator": "sagemaker.spark.s3_destination_0.1",
+      "name": "S3: NYC_export",
+      "parameters": {
+        "output_config": {
+          "compression": "none",
+          "output_path": "s3://979894173312-us-east-1-datawranglertimeseries-6596/",
+          "output_content_type": "CSV",
+          "delimiter": ","
+        }
+      },
+      "inputs": [
+        {
+          "name": "default",
+          "node_id": "40b75fa1-bfb2-4334-b5b9-9374e5ada64c",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "dada62fa-a717-491b-bf62-fa6e81bc2c8b",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.custom_code_0.1",
+      "parameters": {
+        "operator": "Python (PySpark)",
+        "pyspark_parameters": {
+          "code": "from pyspark.sql.types import StructType,StructField, StringType, IntegerType, TimestampType\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.functions import *\n\nspark = SparkSession.builder.getOrCreate()\n\ndata = []\nfor location in range(1,264):\n\tfor time in range (0,10200):\n\t\tdata.append((location, 1546300800 + time*3600))\nschema = StructType([\n  StructField(\"PULocationID\",StringType(),True),\n  StructField(\"pickup_time_temp\",StringType(),True)\n])\ndf_temp = spark.createDataFrame(data=data,schema=schema)\ndf_temp = df_temp.withColumn(\"timestamp\",from_unixtime(\"pickup_time_temp\"))\ndf_temp = df_temp.withColumn(\"pickup_time\",col(\"timestamp\").cast(TimestampType()))\ndf_temp = df_temp.drop(\"pickup_time_temp\",\"timestamp\")\ndf = df_temp.join(df,on=['pickup_time','PULocationID'],how='left')\ndf = df.na.fill(value=0)"
+        }
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "40b75fa1-bfb2-4334-b5b9-9374e5ada64c",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "b56cbfe6-9706-44aa-b526-f65a6f9a9f9f",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.time_series_0.1",
+      "parameters": {
+        "Featurize datetime_parameters": {
+          "output_column": "date",
+          "output_mode": "Ordinal",
+          "output_format": "Columns",
+          "infer_datetime_format": false,
+          "date_time_format": "",
+          "year": true,
+          "month": true,
+          "day": true,
+          "hour": true,
+          "minute": false,
+          "second": false,
+          "week_of_year": true,
+          "day_of_year": true,
+          "quarter": true,
+          "input_column": "pickup_time"
+        },
+        "operator": "Featurize datetime"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "dada62fa-a717-491b-bf62-fa6e81bc2c8b",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "ca21df54-cf52-4e76-9e2f-b82b11c4bbb9",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.time_series_0.1",
+      "parameters": {
+        "Lag features_parameters": {
+          "lag": 8,
+          "entire_window": true,
+          "drop_rows": false,
+          "entire_window_True_parameters": {
+            "flatten": true
+          },
+          "sequence_column": "count",
+          "id_column": "PULocationID",
+          "timestamp_column": "pickup_time"
+        },
+        "operator": "Lag features"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "b56cbfe6-9706-44aa-b526-f65a6f9a9f9f",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "48a1a544-ca92-4cc8-9198-2283895bee6b",
+      "type": "TRANSFORM",
+      "operator": "sagemaker.spark.time_series_0.1",
+      "parameters": {
+        "Rolling window features_parameters": {
+          "window_size": 8,
+          "flatten": true,
+          "strategy": "Minimal subset",
+          "sequence_column": "count",
+          "timestamp_column": "pickup_time",
+          "id_column": "PULocationID"
+        },
+        "operator": "Rolling window features"
+      },
+      "inputs": [
+        {
+          "name": "df",
+          "node_id": "ca21df54-cf52-4e76-9e2f-b82b11c4bbb9",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    },
+    {
+      "node_id": "b3fc1353-eb1c-4c49-b5fc-13337133ce5c",
+      "type": "DESTINATION",
+      "operator": "sagemaker.spark.s3_destination_0.1",
+      "name": "S3: NYC_export_advanced",
+      "parameters": {
+        "output_config": {
+          "compression": "none",
+          "output_path": "s3://979894173312-us-east-1-datawranglertimeseries-6596/NYC_export_advanced/",
+          "output_content_type": "CSV",
+          "delimiter": ","
+        }
+      },
+      "inputs": [
+        {
+          "name": "default",
+          "node_id": "48a1a544-ca92-4cc8-9198-2283895bee6b",
+          "output_name": "default"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "default"
+        }
+      ]
+    }
+  ]
+}
