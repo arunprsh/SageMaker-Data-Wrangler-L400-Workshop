@@ -78,8 +78,13 @@
 | Contributor  | Alias  | 
 |---|---|
 |`Arunprasath Shankar`| `arunprsh@`|
-|`Peter Chung`|`pechung@`|
 |`Vadim Omeltchenko`|`vadimo@`|
+|`Aleksandr Patrushev`| `patrushe@`|
+|`Jason Nicholls`| `nicjas@`|
+|`Yevgeniy Ilyin`|`ilyiny@`|
+|`Neelam Koshiya`|`nkkoshiy@`|
+|`Peter Chung`|`pechung@`|
+|`Amogh Gaikwad`|`gaiamogh@`|
 |`Alex Voitau`|`voitau@`|
 |`Jason Nicholls`|`nicjas@`|
 |`Amogh Gaikwad`|`gaiamogh@`|
